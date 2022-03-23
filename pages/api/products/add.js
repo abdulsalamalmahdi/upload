@@ -2,44 +2,21 @@
 //import nc from 'next-connect';
 import { upload, baseHandler } from 'helpers';
 import { sequelize } from 'lib';
-//import { Suppliers } from 'models';
+import { init, Suppliers, Products} from 'models';
+import { productController } from 'controllers';
 
 const handler = baseHandler
 .use(upload.array('fileName'))
 .post(async (req, res)=>{
-  try {
-   
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-    Suppliers.init({
-      // Model attributes are defined here
-      id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true
-      },
-      firstName: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
-      lastName: {
-        type: DataTypes.STRING
-        // allowNull defaults to true
-      }
-    }, {
-      // Other model options go here
-      sequelize, // We need to pass the connection instance
-      modelName: 'suppliers' // We need to choose the model name
-    });
-    
-//     const jane = await Suppliers.create({ firstName: "Jane", lastName: "Doe" });
-// console.log("Jane's auto-generated ID:", jane.id);
-    
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
+ 
 
-  res.status(400).json(req.files)
+ 
+
+  init()
+
+ await productController.addPRoduct(req, res)
+
+  // res.status(400).json("dkfjkdjf")
 })
 
  

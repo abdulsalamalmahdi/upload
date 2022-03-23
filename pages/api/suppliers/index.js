@@ -1,20 +1,20 @@
-import excuteQuery from '../../../lib/db'
+// import excuteQuery from '../../../lib/db'
 
-export default async (req, res) => {
-    try {
-        // console.log("req nom", req.body)
-      const result = await excuteQuery({
-          query:'SELECT * FROM supplier',
-        //   values: [req.body.content],
-      });
-           res.send(result)
-  } catch ( error ) {
-      res.send(error)
-      console.log( error );
-  }
+// export default async (req, res) => {
+//     try {
+//         // console.log("req nom", req.body)
+//       const result = await excuteQuery({
+//           query:'SELECT * FROM supplier',
+//         //   values: [req.body.content],
+//       });
+//            res.send(result)
+//   } catch ( error ) {
+//       res.send(error)
+//       console.log( error );
+//   }
   
   
-  };
+//   };
 
 
 //   import { apiHandler, usersRepo, omit } from 'helpers/api';
