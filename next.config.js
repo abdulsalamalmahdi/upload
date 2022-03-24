@@ -33,12 +33,12 @@ module.exports = {
             ? 'http://localhost:8000/api' // development api
             : 'http://localhost:8000/api' // production api
     },
-    async rewrites() {
-      return [
-        {
-          source: '/api/:path*',
-          destination: 'https://api.example.com/:path*',
-        },
-      ]
-    },
+    // async rewrites() {
+    //   return [
+    //     {
+    //       source: '/api/:path*',
+    //       destination: 'https://api.example.com/:path*',
+    //     },
+    //   ]
+    // },
   };

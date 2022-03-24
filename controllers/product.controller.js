@@ -23,9 +23,10 @@ const addPRoduct=async (req, res)=>{
 }
 
 const getProduct= async(req, res)=>{
-    const {id}= req.params;
-    res.send(id)
- }
+    const {id}= req.query;
+    await Products.findByPk(id).then(dt=>res.status(200).json(dt)).catch(err=>res.send(err))
+    
+}
 
  const getAllProducts= async(req, res)=>{
   await Products.findAll().then(dt=>res.status(200).json(dt)).catch(err=>res.send(err))
